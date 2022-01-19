@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion> <!--POM model의 버전-->
+	<parent> <!--프로젝트의 계층 정보-->
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.6.2</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.gitface</groupId> <!--프로젝트를 생성하는 조직의 고유 아이디를 결정한다. 일반적으로 도메인 이름을 거꾸로 적는다.-->
+	<artifactId>server</artifactId> <!--프로젝트 빌드시 파일 대표이름 이다. groupId 내에서 유일해야 한다. Maven을 이용하여 빌드시 다음과 같은 규칙으로 파일이 생성 된다. artifactid-version.packaging. 위 예의 경우 빌드할 경우 server-0.0.1-SNAPSHOT.war 파일이 생성된다.-->
+	<version>0.0.1-SNAPSHOT</version> <!--프로젝트의 현재 버전, 프로젝트 개발 중일 때는 SNAPSHOT을 접미사로 사용-->
+	<name>server</name> <!--프로젝트, 프로젝트 이름-->
+	<description>Github-Interface-Server</description> <!--프로젝트에 대한 간략한 설명-->
+	<!-- 버전관리시 용이 하다. ex) 해당 자바 버전을 선언 하고 dependencies에서 다음과 같이 활용 가능 하다. <version>${java.version}</version> -->
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+	<!--dependencies 태그 안에는 프로젝트와 의존 관계에 있는 라이브러리들을 관리 한다.-->
+	<dependencies>
+		<!--Spring MVC를 사용한 RESTful서비스를 개발하는데 사용-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!--Junit, Hamcrest, Mockito를 포함하는 스프링 어플리케이션을 테스트 가능하도록 한다-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<!--Spring Boot 2.2.x 이후 버전은 JUnit5를 기본적으로 제공하고 있기에 exclusion을 추가하지 않아도 된다.-->
+		</dependency>
+	</dependencies>
+
+	<!--빌드에 사용할 플러그인 목록-->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
